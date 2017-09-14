@@ -10,6 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
@@ -20,13 +21,15 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 text-center train-heading">
+		<h1>The Movie Train</h1>
+		<h5>Add Destinations from Your Favorite Movies</h5>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-12">
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
 				</div>
@@ -39,10 +42,9 @@
 					      <tr>
 					        <th>Train Name</th>
 					        <th>Destination</th>
-					        <th>Frequency</th>
+					        <th>Frequency (min)</th>
 					        <th>Next Arrival</th>
 					        <th>Minutes Away</th>
-					        <th>Remove/Edit</th>
 					      </tr>
 					    </thead>
 					    <tbody id ="train-schedule">
@@ -57,10 +59,11 @@
 		</div> <!--Ends Column-->
 	</div> <!--Ends Row-->
 
+	
 	<div class="row">
 		<div class="col-md-12">
 
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Add Train</strong></h3>
 				</div>
@@ -69,21 +72,21 @@
 					<form role="form">
 						<div class="form-group">
 							<label for="Train Name">Train Name</label>
-							<input type="text" class="form-control" id="train-name">
+							<input type="text" class="form-control is-invalid" id="train-name" required>
 						</div>
 						<div class="form-group">
 							<label for="Destination">Destination</label>
-							<input type="text" class="form-control" id="destination">
+							<input type="text" class="form-control" id="destination" required>
 						</div>
 						<div class="form-group">
 							<label for="Time">First Train Time (HH:mm - military time)</label>
-							<input type="text" class="form-control" id="time">
+							<input type="text" class="form-control" id="time" required>
 						</div>
 						<div class="form-group">
 							<label for="Frequency">Frequency (min)</label>
-							<input type="text" class="form-control" id="freq">
+							<input type="number" class="form-control" id="freq" min="1" max="1440" required>
 						</div>
-      					<button type="submit" class="btn btn-default" id="add-train"><i class="fa fa-search"></i>Submit</button>
+      					<button type="submit" class="btn btn-default" id="add-train" value="Send train information"><i class="fa fa-search"></i>Submit</button>
 					</form>
 				</div> <!-- End Panel Body -->
 

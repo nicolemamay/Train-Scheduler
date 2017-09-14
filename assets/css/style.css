@@ -1,0 +1,33 @@
+
+h1 {
+	font-family: 'Princess Sofia', cursive;
+}
+
+.train-heading {
+	background-image: url("../images/train.jpg");
+	height: 200px;
+	background-size: 400px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.panel-default>.panel-heading {
+	background-color: #c52d22;
+	border-color: #c52d22;
+	color: #fff;
+}
+
+.panel-default {
+	border-color: #c52d22;
+}
+
+input:required:focus {
+  background: #b8b6bb;
+}
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #000;
+}

@@ -20,8 +20,6 @@ var destination = "";
 var time = 0;
 var freq = 0;
 var minutes = 0;
-var allTrains = 0;
-
 
 //  At the page load and subsequent value changes, get a snapshot of the stored data.
 // This function allows you to update your page in real-time when the firebase database changes.
@@ -66,28 +64,32 @@ database.ref().on("child_added", function(childSnapshot) {
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     var nextTrainConverted = moment().add(tMinutesTillTrain, "minutes")
 
-    nextTrain = moment(nextTrain).format("HH");
-    console.log("military time train: ", nextTrain);
-
+    // Convert next train time format
     nextTrainConverted = moment(nextTrainConverted).format("hh:mm");
     console.log("ARRIVAL TIME: " + nextTrainConverted);
 
-    if(nextTrain > 12) {
+
+    // Convert next train time to military time to set AM/PM displays
+    nextTrain = moment(nextTrain).format("HH");
+    console.log("military time train: ", nextTrain);
+
+    if(nextTrain > 11) {
       var amPM = "PM";
     }
-    else { 
+    else if(nextTrain <= 11) { 
       var amPM = "AM";
     }
 
 
     // Change the HTML to reflect the stored values
-    $("#train-schedule").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + freq + "</td><td>" + nextTrainConverted + " " + amPM + "</td><td>" + tMinutesTillTrain + "</td><td><button class='delete-train'>X</button><button class='edit-train'>Edit</button></td></tr>")
-    
+    $("#train-schedule").append("<tr class='trainNumber'><td>" + train + "</td><td>" + destination + "</td><td>" + freq + "</td><td>" + nextTrainConverted + " " + amPM + "</td><td>" + tMinutesTillTrain + "</td></tr>")
+
     // Handle the errors
     }, function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
 
     });
+
 
 
 // When the user clicks the submit button to add a train, get input values
@@ -99,7 +101,6 @@ $("#add-train").on("click", function(event) {
   var newTime = $("#time").val().trim();
   var newFreq = parseInt($("#freq").val().trim());
 
-  allTrains++
 
   console.log("Train: " + newTrain);
   console.log("Destination: " + newDestination);
@@ -118,30 +119,12 @@ $("#add-train").on("click", function(event) {
 });
 
 
-function clearTrainInput() {
-  $("#train-name").val(" ");
-  $("#destination").val(" ");
-  $("#time").val(" ");
-  $("#freq").val(" ");
-}
-
-
-
-$(document).on("click", ".delete-train", function () {
-  var trainToDelete = $(this);
-  console.log(trainToDelete);
-
-    for (var i = 0; i < allTrains.length; i++) {
-      trainNumber = allTrains.index
-      $(".delete-train").attr("id", allTrains[i].index);
-      console.log(allTrains[i].index)
-    }
-
-
-
-})
-
-
-
+  // Empty the values of the input fields
+  function clearTrainInput() {
+    $("#train-name").val(" ");
+    $("#destination").val(" ");
+    $("#time").val(" ");
+    $("#freq").val(" ");
+  }
 
 
