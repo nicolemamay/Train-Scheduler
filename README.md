@@ -8,7 +8,7 @@ A Firebase backed train schedule application that utilizes HTML, CSS and jQuery 
 
 ## Experience the App
 
-* View the app: [Heroku Link](https://tech-news-carvalho.herokuapp.com)
+* View the app: [GitHub Pages Link](https://nicolelcarvalho.github.io/Train-Scheduler/)
 
 ## Illustration
 
