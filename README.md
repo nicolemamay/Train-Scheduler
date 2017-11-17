@@ -12,8 +12,8 @@ A Firebase backed train schedule application that utilizes HTML, CSS and jQuery 
 
 ## Illustration
 
-![trainadmin](demos/train_admin.png)
-![trainadmin2](demos/train_admin2.png)
+![trainadmin](demo/train_admin.png)
+![trainadmin2](demo/train_admin2.png)
 
 ## Tech Used
 - Firebase
